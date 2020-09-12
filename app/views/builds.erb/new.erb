@@ -1,0 +1,19 @@
+<%= erb :nav %>
+<section class="intro-section">
+  <div class="container">
+<h3>Create A New Car build</h3>
+<form action="/builds" method="POST">
+  <input type="text" class="form-control" name="title" placeholder="Title">
+  <input type="text" class="form-control" name="budget" placeholder="Budget">
+  <br><br>
+  <input type="submit" class="btn btn-primary" value="submit">
+</form>
+<% unless locals.empty? %>
+  <div class="alert alert-danger">
+  <%= message %>
+<% end %>
+  </div>
+
+  </div>
+</section>
+

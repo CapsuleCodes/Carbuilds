@@ -1,0 +1,11 @@
+<section class="intro-section">
+  <div class="container">
+    <h1>All Builds</h1>
+    <% @builds.each do |build| %>
+      <h2><a href="/builds/<%= build.id %>"><%= build.title %></a></h2>
+    <% end %>
+<button class="btn btn-default"><a href="/builds/new">Create A New Build</a></button>
+
+  </div>
+</section>
+

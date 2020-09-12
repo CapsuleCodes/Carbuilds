@@ -1,0 +1,15 @@
+<%= erb :nav %>
+<section class="intro-section">
+  <div class="container">
+<h1>Edit Car Build</h1>
+
+<form action="/builds/<%= @build.id %>" method="POST">
+  <input type="hidden" id="hidden" name="_method" value="PATCH">
+
+  <input type="text" class="form-control" name="title" value="<%= @build.title %>">
+  <input type="text" class="form-control" name="budget" value="<%= @build.budget %>">
+
+  <input type="submit" class="btn btn-primary" value="submit" id="submit">
+</form>
+</div>
+</section>
