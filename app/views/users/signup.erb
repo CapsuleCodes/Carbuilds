@@ -6,3 +6,12 @@
         <input type="text" class="form control" name"username" placeholder="Username:">
         <input type="text" class="form control" name"email" placeholder="Email:">
         <input type="password" class="form control" name"password" placeholder="Password:">
+        <input type="submit" class="btn btn-primary" value="Sign Up">
+    </form>
+    <% unless locals.empty %>
+        <div class="alert alert-danger">
+        <%= message %>
+    <% end %>
+    </div>
+        </div>
+    </section>

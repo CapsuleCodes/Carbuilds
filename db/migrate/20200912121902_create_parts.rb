@@ -4,5 +4,6 @@ class CreateParts < ActiveRecord::Migration
       t.string :name
       t.integer :price
       t.integer :project_id
-  end
+    end
+ end
 end
