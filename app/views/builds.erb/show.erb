@@ -1,0 +1,23 @@
+<%= erb nav %>
+<section class="intro-section">
+    <div class= "container">
+    <h1><%= @build.budget %></h1>
+     <h1>Budget: <%= @build.budget %></h1>
+     <ul>
+        <% @project.parts.each do |part| %>
+        <li><%= "#{part.name} - $#{part.price}" %>
+            <span>
+
+    <form action="/builds/<%= @build.id %>/parts/<%part.id %>/delete" method="post">
+        <input type="hidden" id="hidden" name="_method" value="delete">
+        <input type="submit" class="btn btn-danger" value="Delete Part">
+        <br><br>
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+    <% unless locals.empty %>
+        <div class="alert alert-danger">
+        <%= message %>
+    <% end %>
+    </div>
+        </div>
+    </section>
