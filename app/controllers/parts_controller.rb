@@ -1,5 +1,5 @@
 class PartsController < ApplicationController
-    get 'projects/:id/parts/new' do
+    get 'builds/:id/parts/new' do
         if logged_in?
             @build = Build.find(params[:id])
         else
@@ -7,7 +7,7 @@ class PartsController < ApplicationController
         end
     end
 
-    post '/projects/:id' do
+    post '/builds/:id' do
         if params.value.any? {|value| value == ""}
            @build = Build.find(params[:id])
            erb :'parts/new', locals: {message: "Incomplete"}
@@ -15,12 +15,12 @@ class PartsController < ApplicationController
            @build = Build.find(params[:id])
            @part = Part.new(name: params[:id])
            @part.save
-           @project.parts << @part
-           redirect to "/projects/#{@project.id}"
+           @build.parts << @part
+           redirect to "/builds/#{@build.id}"
         end
     end
 
-    delete '/projects/:id/parts/:part_id/delete' do
+    delete '/builds/:id/parts/:part_id/delete' do
         @build = Build.find(param[:id])
         @part = Part.find(params[:part_id])
         if logged_in?
@@ -28,10 +28,11 @@ class PartsController < ApplicationController
             if @build.user_id == session[:user_id]
                 @part = Part.find(params[:part_id])
                 @part.delete
-                redirect to "/projects/#{@project.id}"
+                redirect to "/builds/#{@build.id}"
             end
         else
             erb :'users/login', locals: {message: "Please Login!"}
         end
     end
-end
+end 
+

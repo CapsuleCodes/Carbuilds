@@ -8,10 +8,10 @@
         <input type="password" class="form control" name"password" placeholder="Password:">
         <input type="submit" class="btn btn-primary" value="Sign Up">
     </form>
-    <% unless locals.empty %>
+    <% unless locals.empty? %>
         <div class="alert alert-danger">
         <%= message %>
     <% end %>
     </div>
-        </div>
+    </div>
     </section>

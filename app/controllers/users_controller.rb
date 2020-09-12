@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   get '/login' do 
       if !logged_in?
-         erb: '/users/login'
+         erb :'/users/login'
       else    
          redirect to '/builds'
       end
@@ -42,7 +42,9 @@ class UsersController < ApplicationController
             session.destroy
             redirect to '/'
         else
-            redirect to '/projects'
+            redirect to '/builds'
         end
     end
 end
+
+build

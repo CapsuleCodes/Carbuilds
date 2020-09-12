@@ -11,13 +11,17 @@
     <form action="/builds/<%= @build.id %>/parts/<%part.id %>/delete" method="post">
         <input type="hidden" id="hidden" name="_method" value="delete">
         <input type="submit" class="btn btn-danger" value="Delete Part">
-        <br><br>
-        <input type="submit" class="btn btn-primary" value="Submit">
+            </form>
+        </span>
+      </li>
+      <% end %>
+    </ul>
+    <button class="btn btn-default"><a href="/builds/<%= @build.id %>/parts/new"> Add New Part </a></button>
+    <button class="btn btn-default"><a href="/builds/<%= @build.id %>/edit">Edit Build</a></button>
+
+    <form action="/builds/<%= @build.id %>/delete" method="post">
+        <input type="hidden" id="hidden" name="_method" value="delete">
+        <input type="submit" class="btn btn-danger" value="delete project">
     </form>
-    <% unless locals.empty %>
-        <div class="alert alert-danger">
-        <%= message %>
-    <% end %>
     </div>
-        </div>
     </section>
